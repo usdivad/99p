@@ -89,4 +89,13 @@
 
     )
 
-(print (subst2 'vanilla 'chocolate 'banana '(banana ice cream w chocolate pudding)))
+;(print (subst2 'vanilla 'chocolate 'banana '(banana ice cream w chocolate pudding)))
+
+(defun multirember (a lat)
+    (cond
+        ((null lat) '())
+        ((eq a (car lat)) (multirember a (cdr lat)))
+        (t (cons (car lat) (multirember a (cdr lat))))
+        )
+    )
+(print (multirember 0 '(1 0 2 0 3)))
