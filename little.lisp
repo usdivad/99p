@@ -1,4 +1,5 @@
 ; LITTLE SCHEMER
+
 ; ch1 function defs
 (defun null? (l)
 	(null l))
@@ -24,3 +25,13 @@
 				(member? a (cdr lat))))))
 				
 ;(print (member? 2 '(1 2 3)))
+
+;ch3
+(defun rember (a lat)
+    (cond
+        ((null lat) nil)
+        ((eq a (car lat)) (cdr lat))
+        (t (cons (car lat) (rember a (cdr lat))))
+        )
+    )
+;(print (rember 3 '(1 3 5 7)))
