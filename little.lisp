@@ -107,4 +107,13 @@
         (t (cons (car lat) (multiinsertR new old (cdr lat))))
         )
     )
-(print (multiinsertR 'hundred 'four '(four score and four million years ago)))
+;(print (multiinsertR 'hundred 'four '(four score and four million years ago)))
+
+(defun multiinsertL (new old lat)
+    (cond
+        ((null lat) '())
+        ((eq old (car lat)) (cons new (cons old (multiinsertL new old (cdr lat)))))
+        (t (cons (car lat) (multiinsertL new old (cdr lat))))
+        )
+    )
+(print (multiinsertL 'seventy 'four '(four score and four million years ago)))
