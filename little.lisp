@@ -57,4 +57,13 @@
         (t (cons (car lat) (insertR new old (cdr lat))))
         )
     )
-(print (insertR 'zulu 4 '(1 2 3 4 6)))
+;(print (insertR 'five 4 '(1 2 3 4 6)))
+
+(defun insertL (new old lat)
+    (cond
+        ((null lat) '())
+        ((eq old (car lat)) (cons new lat))
+        (t (cons (car lat) (insertL new old (cdr lat))))
+        )
+    )
+(print (insertL 'four 5 '(1 2 3 5 6)))
