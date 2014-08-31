@@ -77,4 +77,16 @@
         (t (cons (car lat) (subst new old (cdr lat))))
         )
     )
-(print (subst 'FOUR 4 '(1 2 3 4 5)))
+;(print (subst 'FOUR 4 '(1 2 3 4 5)))
+
+
+(defun subst2 (new o1 o2 lat)
+    (cond
+        ((null lat) '())
+        ((or (eq o1 (car lat)) (eq o2 (car lat))) (cons new (cdr lat)))
+        (t (cons (car lat) (subst2 new o1 o2 (cdr lat))))
+        )
+
+    )
+
+(print (subst2 'vanilla 'chocolate 'banana '(banana ice cream w chocolate pudding)))
