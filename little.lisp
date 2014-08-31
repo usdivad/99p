@@ -53,7 +53,7 @@
 (defun insertR (new old lat)
     (cond
         ((null lat) '())
-        ((eq old (car lat)) (cons (car lat) (cons new (cdr lat))))
+        ((eq old (car lat)) (cons old (cons new (cdr lat))))
         (t (cons (car lat) (insertR new old (cdr lat))))
         )
     )
