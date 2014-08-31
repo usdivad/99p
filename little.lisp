@@ -43,8 +43,18 @@
 ;firsts = get first element of each list in l
 (defun firsts (l)
     (cond
-        ((null l) nil)
+        ((null l) '())
         (t (cons (car (car l)) (firsts (cdr l))))
         )
     )
 ;(print (firsts '((1 2 3) (4 5 6) (7 8 9))))
+
+;insertR = inserts new to the right of the first occurrence of old
+(defun insertR (new old lat)
+    (cond
+        ((null lat) '())
+        ((eq old (car lat)) (cons (car lat) (cons new (cdr lat))))
+        (t (cons (car lat) (insertR new old (cdr lat))))
+        )
+    )
+(print (insertR 'zulu 4 '(1 2 3 4 6)))
