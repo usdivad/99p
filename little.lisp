@@ -1,4 +1,5 @@
 ; LITTLE SCHEMER
+; sbcl --load little.lisp
 (print '(little schemer!))
 
 ; ch1 function defs
@@ -66,4 +67,14 @@
         (t (cons (car lat) (insertL new old (cdr lat))))
         )
     )
-(print (insertL 'four 5 '(1 2 3 5 6)))
+;(print (insertL 'four 5 '(1 2 3 5 6)))
+
+
+(defun susbst (new old lat)
+    (cond
+        ((null lat) '())
+        ((eq old (car lat)) (cons new (cdr lat)))
+        (t (cons (car lat) (subst new old (cdr lat))))
+        )
+    )
+(print (subst 'FOUR 4 '(1 2 3 4 5)))
