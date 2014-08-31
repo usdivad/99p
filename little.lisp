@@ -98,4 +98,13 @@
         (t (cons (car lat) (multirember a (cdr lat))))
         )
     )
-(print (multirember 0 '(1 0 2 0 3)))
+;(print (multirember 0 '(1 0 2 0 3)))
+
+(defun multiinsertR (new old lat)
+    (cond
+        ((null lat) '())
+        ((eq old (car lat)) (cons (car lat) (cons new (multiinsertR new old (cdr lat)))))
+        (t (cons (car lat) (multiinsertR new old (cdr lat))))
+        )
+    )
+(print (multiinsertR 'hundred 'four '(four score and four million years ago)))
