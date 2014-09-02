@@ -10,7 +10,7 @@
 		(t (my-last (cdr l)))
 	))
 ;(print (cons 'bacon (my-last '(2 4 5 22 'bacon))))
-(print (my-last '(egg and cheese)))
+(print (my-last '(egg and cheese 1)))
 
 ;2
 ;9/1: 0018-0025
@@ -28,10 +28,15 @@
 			(t (my-but-last (cdr l)))
 		)
 	)
-(print (my-but-last '(1 2 3 bacon 4)))
+(print (my-but-last '(bacon ham 2 day)))
 
 ;3
-;0025-
+;0103-0112 (with hint)
 (defun element-at (l k)
-	(t l)
+	(cond
+		((null l) '())
+		((eq k 1) (car l))
+		(t (element-at (cdr l) (- k 1)))
 	)
+)
+(print (element-at '(zip zop 3 zof) 3))
