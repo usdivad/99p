@@ -40,3 +40,16 @@
 	)
 )
 (print (element-at '(zip zop 3 zof) 3))
+
+;4
+;0113-0121
+(defun number-of-elements (l)
+	(defun number-of-elements-helper (l n)
+		(cond 
+			((null l) n)
+			(t (number-of-elements-helper (cdr l) (+ n 1)))
+		)
+	)
+	(number-of-elements-helper l 0)
+)
+(print (number-of-elements '(yi er san si)))
